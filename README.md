@@ -25,7 +25,7 @@ inefficient.
 ## Runtime Analysis
 
 **Summary**:
-The time complexity of dijkstras algorithm is $\Theta((V + E)  \log V)$, where $V$ is the number of vertices and $E$ is the number of edges.
+The time complexity of dijkstras algorithm is $\Theta(V^2 + E)$, where $V$ is the number of vertices and $E$ is the number of edges.
 
 Initializing the **distances** array and the **visited** set takes $\Theta(V)$ time. This is because we need to fill the array with **Infinity** values foreach verticy.
 
@@ -41,8 +41,10 @@ Initializing the **distances** array and the **visited** set takes $\Theta(V)$ t
 Therefore, the overall time complexity of the algorithm is determined by the while loop and the operations inside it. The dominant terms are:
 
 - $\Theta(V)$ for the while loop iterations.
-- $\Theta(V \log V)$ for finding the unvisited node with the smallest distance using reduce.
+- $\Theta(V)$ for finding the unvisited node with the smallest distance using `reduce()`.
 - $\Theta(E)$ for iterating over the neighboring nodes across all iterations.
+
+Since we loop over all verticies and can perform another $V$ iterations during the reduce method, we will have an quadratic runtime of $V^2$. In conclusion the overall runtime complexity of my implimentation of dijkstras algorithm is $\Theta(V^2 + E)$.
 
 ## Resources
 
