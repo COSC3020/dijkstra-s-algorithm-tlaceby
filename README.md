@@ -24,8 +24,25 @@ inefficient.
 
 ## Runtime Analysis
 
-What is the big $\Theta$ complexity of your implementation? Add your
-answer, including your reasoning, to this markdown file.
+**Summary**:
+The time complexity of dijkstras algorithm is $\Theta((V + E)  \log V)$, where $V$ is the number of vertices and $E$ is the number of edges.
+
+Initializing the **distances** array and the **visited** set takes $\Theta(V)$ time. This is because we need to fill the array with **Infinity** values foreach verticy.
+
+1. The main while loop runs until all vertices are visited, which takes at most $V$ iterations.
+
+2. Finding the unvisited node with the smallest distance using reduce takes $\Theta(V)$ time in the worst case, as we need to iterate over all the distances.
+
+3. Adding the closest node to the visited set takes $\Theta(1)$ time.
+4. The inner for loop iterates over the neighboring nodes of the current node. In the worst case, each node can have up to $V-1$ neighbors, so the total number of iterations across all nodes is $\Theta(E)$.
+
+5. Updating the distance of a neighboring node takes $\Theta(1)$ time.
+
+Therefore, the overall time complexity of the algorithm is determined by the while loop and the operations inside it. The dominant terms are:
+
+- $\Theta(V)$ for the while loop iterations.
+- $\Theta(V \log V)$ for finding the unvisited node with the smallest distance using reduce.
+- $\Theta(E)$ for iterating over the neighboring nodes across all iterations.
 
 ## Resources
 
